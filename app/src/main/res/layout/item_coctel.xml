@@ -17,7 +17,7 @@
         tools:text="TextView" />
 
     <TextView
-        android:id="@+id/tv_pais"
+        android:id="@+id/tv_ingredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
