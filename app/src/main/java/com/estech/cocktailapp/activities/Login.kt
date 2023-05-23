@@ -6,6 +6,7 @@ import android.graphics.Shader
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.estech.cocktailapp.databinding.ActivityLoginBinding
+import com.estech.cocktailapp.shared_preferences.PrefHelper
 
 class Login : AppCompatActivity() {
 
@@ -16,6 +17,8 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val myPrefHelper = PrefHelper(this)
+
         val textShader: Shader = LinearGradient(
             0f,
             0f,
@@ -25,7 +28,12 @@ class Login : AppCompatActivity() {
             floatArrayOf(0f, 1f),
             Shader.TileMode.CLAMP
         )
-
         binding.textView.paint.shader = textShader
+
+        binding.loginButton.setOnClickListener {
+            with (binding) {
+                // Login Logic to be implemmented!!
+            }
+        }
     }
 }
