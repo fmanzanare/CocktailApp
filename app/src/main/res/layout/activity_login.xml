@@ -6,9 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#f0f0f0">
 
-    <!--nombre de la app con -->
+    <!-- nombre de la app-->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--foto de la app con -->
+    <!-- foto de la app -->
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="150dp"
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <!-- campo de entrada de correo electrónico -->
     <EditText
@@ -35,7 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:hint="Correo electrónico"
+        android:hint="Usuario"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
         app:layout_constraintTop_toBottomOf="@id/logoImageView"
@@ -71,32 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5" />
 
-    <!-- Enlace para registrarse -->
-    <TextView
-        android:id="@+id/signupTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="¿No tienes una cuenta? Regístrate aquí"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
-
-    <!-- Botón de acceso sin registro -->
-    <Button
-        android:id="@+id/guestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Acceso sin registro"
-        android:textColor="#ffffff"
-        android:background="#4CAF50"
-        app:layout_constraintTop_toBottomOf="@id/signupTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+    <!-- boton de acceso sin registro -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
