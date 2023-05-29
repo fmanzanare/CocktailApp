@@ -1,12 +1,18 @@
 package com.estech.cocktailapp.activities
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.estech.cocktailapp.databinding.ActivityLoginBinding
 import com.estech.cocktailapp.shared_preferences.PrefHelper
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class Login : AppCompatActivity() {
 
@@ -32,7 +38,34 @@ class Login : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener {
             with (binding) {
-                // Login Logic to be implemmented!!
+                if (myPrefHelper.getUsername().equals("Usuario"))
+                    emailEditText.setText(myPrefHelper.getUsername())
+
+                loginButton.setOnClickListener {
+                    if (emailEditText.text.isNullOrEmpty() || passwordEditText.text.isNullOrEmpty()) {
+                        emailEditText.error = "El campo email es obligatorio"
+                        passwordEditText.error = "El campo password es obligatorio"
+                    } else if (emailEditText.text.equals("Usuario") && passwordEditText.text.equals("12345")) {
+                        myPrefHelper.putUsername("Usuario")
+                        val time = Calendar.getInstance().time
+                        val currDate = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE).format(time)
+                        myPrefHelper.putCurrDate(currDate)
+
+                        val intent = Intent(this@Login, MainActivity::class.java)
+                        intent.putExtra("user", emailEditText.text)
+                        intent.putExtra("date", currDate)
+                        startActivity(intent)
+                    } else {
+                        val builder = AlertDialog.Builder(this@Login)
+                        builder.setTitle("Error")
+                        builder.setMessage("Usuario y contraseña incorrectos. Vuelve a intentarlo.")
+                        builder.setNegativeButton("Cerrar", null)
+                        builder.create().show()
+
+                        emailEditText.error = "El campo usuario y contraseña son incorrectos"
+                        passwordEditText.error = "El campo usuario y contraseña son incorrectos"
+                    }
+                }
             }
         }
     }
