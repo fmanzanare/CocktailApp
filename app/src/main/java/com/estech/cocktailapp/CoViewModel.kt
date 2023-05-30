@@ -5,39 +5,74 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.estech.cocktailapp.data.Drink
+import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CoViewModel(val context: Context): ViewModel() {
+class CoViewModel(val context: Context) : ViewModel() {
 
     private val repositorio = Repository(context)
 
-    val alcoholLiveData = MutableLiveData<List<Drink>?>()
-    val noAlcoholLiveData = MutableLiveData<List<Drink>?>()
+    val drinksLiveData = MutableLiveData<List<Drink>?>()
+    val ingrLiveData = MutableLiveData<List<Ingredient>?>()
 
-    fun getAlcohol() {
+    fun getAlcohol(a: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = repositorio.getAlcoholic()
+            val response = repositorio.alcohols(a)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
                 val listaBebidasAlc = miRespuesta
-                alcoholLiveData.postValue(listaBebidasAlc)
+                drinksLiveData.postValue(listaBebidasAlc)
             }
         }
     }
 
-    fun getNonAlcohol() {
+    fun getCategory(c: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = repositorio.getNonAlcoholic()
+            val response = repositorio.category(c)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
-                val listaBebidasNoAlc = miRespuesta
-                noAlcoholLiveData.postValue(listaBebidasNoAlc)
+                val listaCate = miRespuesta
+                drinksLiveData.postValue(listaCate)
             }
         }
     }
+
+    fun getIng(i: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.ingredient(i)
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                val listaIng = miRespuesta
+                drinksLiveData.postValue(listaIng)
+            }
+        }
+    }
+
+    fun getGlass(g: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.glass(g)
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                val listaGlass = miRespuesta
+                drinksLiveData.postValue(listaGlass)
+            }
+        }
+    }
+
+    fun getIds(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.ids(id)
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                val listaIds = miRespuesta
+                ingrLiveData.postValue(listaIds)
+            }
+        }
+    }
+
 
     class MyViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

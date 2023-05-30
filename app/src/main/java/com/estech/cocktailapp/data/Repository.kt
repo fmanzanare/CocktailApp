@@ -7,11 +7,20 @@ class Repository(val context: Context) {
 
     private val retrofit = RetrofitHelper.getRetrofit()
 
-    // obtener lista con alcohol
-    suspend fun getAlcoholic() = retrofit.alcoholicDrinks()
+    // para obtener según tenga alcohol o no
+    suspend fun alcohols(a: String) = retrofit.getDrinksAlc(a)
 
-    // obtener lista sin alcohol
+    // para obtener según la categoría
+    suspend fun category(c: String) = retrofit.getDrinkCateg(c)
 
-    suspend fun getNonAlcoholic() = retrofit.nonAlcoholicDrinks()
+    // para obtener según el ingrediente
+    suspend fun ingredient(i: String) = retrofit.getIngredient(i)
+
+    // para obtener según el vaso
+    suspend fun glass(g: String) = retrofit.getTypeGlass(g)
+
+    // para obtener por id
+    suspend fun ids(id: Int) = retrofit.getById(id)
+
 
 }

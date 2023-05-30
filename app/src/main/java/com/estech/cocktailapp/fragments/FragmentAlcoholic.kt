@@ -14,10 +14,6 @@ class FragmentAlcoholic : Fragment() {
 
     private lateinit var binding: FragmentAlcoholicBinding
 
-    private val bebidasAlc by activityViewModels<CoViewModel> {
-        CoViewModel.MyViewModelFactory(requireContext())
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +25,6 @@ class FragmentAlcoholic : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        bebidasAlc.getAlcohol()
-
 
     }
 }
