@@ -45,7 +45,7 @@ class Login : AppCompatActivity() {
                     if (emailEditText.text.isNullOrEmpty() || passwordEditText.text.isNullOrEmpty()) {
                         emailEditText.error = "El campo email es obligatorio"
                         passwordEditText.error = "El campo password es obligatorio"
-                    } else if (emailEditText.text.equals("Usuario") && passwordEditText.text.equals("12345")) {
+                    } else if (emailEditText.text.toString() == "Usuario" && passwordEditText.text.toString() == "12345") {
                         myPrefHelper.putUsername("Usuario")
                         val time = Calendar.getInstance().time
                         val currDate = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE).format(time)

@@ -12,7 +12,7 @@ object RetrofitHelper {
 
         if (retrofitService == null) {
             val retrofit = Retrofit.Builder()
-                .baseUrl("www.thecocktaildb.com/api/json/v1/1/")
+                .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
 
