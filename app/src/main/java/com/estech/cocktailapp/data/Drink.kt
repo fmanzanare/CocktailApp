@@ -3,6 +3,7 @@ package com.estech.cocktailapp.data
 
 import com.squareup.moshi.Json
 
+
 data class Drink(
     @Json(name = "idDrink")
     val idDrink: String,
