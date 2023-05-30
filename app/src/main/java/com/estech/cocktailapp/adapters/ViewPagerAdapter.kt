@@ -3,6 +3,8 @@ package com.estech.cocktailapp.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.estech.cocktailapp.fragments.ListaCoctelesAlcohol
+import com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol
 
 class ViewPagerAdapter(
     activity: FragmentActivity
@@ -12,7 +14,7 @@ class ViewPagerAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        TODO("Not yet implemented")
+        return if (position == 0) ListaCoctelesAlcohol() else ListaCoctelesNoAlcohol()
     }
 
 }
