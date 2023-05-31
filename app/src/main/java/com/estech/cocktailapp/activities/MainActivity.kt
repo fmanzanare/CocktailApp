@@ -15,6 +15,7 @@ import com.estech.cocktailapp.R
 import com.estech.cocktailapp.adapters.ViewPagerAdapter
 import com.estech.cocktailapp.databinding.ActivityMainBinding
 import com.estech.cocktailapp.shared_preferences.PrefHelper
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,5 +32,9 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         binding.viewPager.adapter = ViewPagerAdapter(this)
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab,position ->
+
+
+        }.attach()
     }
 }

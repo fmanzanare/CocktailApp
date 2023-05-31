@@ -23,7 +23,7 @@ class CoViewModel(val context: Context) : ViewModel() {
             val response = repositorio.alcohols(a)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
-                val listaBebidasAlc = miRespuesta
+                val listaBebidasAlc = miRespuesta?.drinks
                 drinksLiveData.postValue(listaBebidasAlc)
             }
         }
