@@ -32,12 +32,18 @@ class ListaCoctelesNoAlcohol : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.HORIZONTAL)
+        binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
 
         val adapter = CoctelesAlcoholAdapter()
         binding.recyclerview.adapter = adapter
         myViewModel.getAlcohol("Non_Alcoholic")
+
+        binding.swipe.setOnRefreshListener {
+            myViewModel.getAlcohol("Non_Alcoholic")
+        }
+
         myViewModel.drinksLiveData.observe(viewLifecycleOwner) {
+            binding.swipe.isRefreshing = false
             if (it != null) {
                 adapter.updateList(it)
             }

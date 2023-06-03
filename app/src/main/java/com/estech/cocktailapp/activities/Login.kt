@@ -54,6 +54,7 @@ class Login : AppCompatActivity() {
                     intent.putExtra("user", emailEditText.text)
                     intent.putExtra("date", currDate)
                     startActivity(intent)
+                    finish()
                 } else {
                     val builder = AlertDialog.Builder(this@Login)
                     builder.setTitle("Error")

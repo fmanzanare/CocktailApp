@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         binding.viewPager.adapter = ViewPagerAdapter(this)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab,position ->
-
-
+            tab.text = if (position == 0) "Cockteles con Alcohol" else "Cockteles sin Alcohol"
         }.attach()
     }
 }

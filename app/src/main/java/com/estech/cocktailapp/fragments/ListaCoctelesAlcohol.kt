@@ -38,6 +38,10 @@ class ListaCoctelesAlcohol : Fragment() {
         binding.recyclerview.adapter = adapter
         myViewModel.getAlcohol("Alcoholic")
 
+        binding.swipe.setOnRefreshListener {
+            myViewModel.getAlcohol("Alcoholic")
+        }
+
         myViewModel.drinksLiveData.observe(viewLifecycleOwner) {
             binding.swipe.isRefreshing = false
             if (it != null)
