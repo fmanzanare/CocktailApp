@@ -42,7 +42,7 @@ class ListaCoctelesNoAlcohol : Fragment() {
             myViewModel.getAlcohol("Non_Alcoholic")
         }
 
-        myViewModel.drinksLiveData.observe(viewLifecycleOwner) {
+        myViewModel.nonAlcoholicLiveData.observe(viewLifecycleOwner) {
             binding.swipe.isRefreshing = false
             if (it != null) {
                 adapter.updateList(it)
