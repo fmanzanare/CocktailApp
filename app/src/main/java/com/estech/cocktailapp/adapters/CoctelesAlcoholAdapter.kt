@@ -9,7 +9,7 @@ import com.estech.cocktailapp.CoViewModel
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.databinding.CoctelHolderBinding
 
-class CoctelesAlcoholAdapter() : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>(){
+class CoctelesAlcoholAdapter(val myViewModel: CoViewModel) : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>(){
 
     private var lista = ArrayList<Drink>()
 
@@ -31,12 +31,14 @@ class CoctelesAlcoholAdapter() : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiC
 
         holder.binding.tvCoctelName.text = info.strDrink
 
-        with(holder.binding) {
-            Glide.with(
-                holder.itemView.context
-            )
-                .load(info.strDrinkThumb)
-                .into(holder.binding.ivCoctelImg)
+        Glide.with(
+            holder.itemView.context
+        )
+            .load(info.strDrinkThumb)
+            .into(holder.binding.ivCoctelImg)
+
+        holder.itemView.setOnClickListener {
+            myViewModel.chooseDrink(info)
         }
     }
 

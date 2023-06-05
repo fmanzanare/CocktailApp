@@ -34,7 +34,7 @@ class ListaCoctelesAlcohol : Fragment() {
 
         binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
 
-        val adapter = CoctelesAlcoholAdapter()
+        val adapter = CoctelesAlcoholAdapter(myViewModel)
         binding.recyclerview.adapter = adapter
         myViewModel.getAlcohol("Alcoholic")
 
