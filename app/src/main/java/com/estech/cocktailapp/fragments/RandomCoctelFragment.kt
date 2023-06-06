@@ -9,12 +9,9 @@ import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.estech.cocktailapp.CoViewModel
 import com.estech.cocktailapp.activities.MainActivity
-import com.estech.cocktailapp.adapters.CoctelDetalleViewPagerAdapter
-import com.estech.cocktailapp.adapters.ListaCoctelesViewPagerAdapter
 import com.estech.cocktailapp.databinding.DetalleCoctelBinding
-import com.google.android.material.tabs.TabLayoutMediator
 
-class DetalleCoctelFragment : Fragment() {
+class RandomCoctelFragment : Fragment() {
 
     private lateinit var binding: DetalleCoctelBinding
 
@@ -28,7 +25,7 @@ class DetalleCoctelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DetalleCoctelBinding.inflate(inflater, container, false)
-        return (binding.root)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,22 +34,12 @@ class DetalleCoctelFragment : Fragment() {
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
-        binding.viewpager.adapter = CoctelDetalleViewPagerAdapter(requireActivity())
-        TabLayoutMediator(binding.tabs, binding.viewpager) { tab,position ->
-            tab.text = if (position == 0) "Detalles" else "Receta"
-        }.attach()
-
-        myViewModel.selectedCoctel.observe(viewLifecycleOwner) {
-
-            (requireActivity() as MainActivity).supportActionBar?.title = it.strDrink
-
+        myViewModel.getRandomCoctel().observe(viewLifecycleOwner) {
+            (requireActivity() as MainActivity).supportActionBar?.title = it?.get(0)?.strDrink
             Glide.with(this)
-                .load(it.strDrinkThumb)
+                .load(it?.get(0)?.strDrinkThumb)
                 .into(binding.ivCatImage)
-
-            it?.idDrink?.let { it1 -> myViewModel.getFullCoctelById(it1) }
+            it?.get(0)?.let { it1 -> myViewModel.putFullCoctel(it1) }
         }
-
     }
-
 }

@@ -2,10 +2,12 @@ package com.estech.cocktailapp.network
 
 import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
+import com.estech.cocktailapp.data.FullCoctel
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Respuesta
 import com.estech.cocktailapp.data.RespuestaCategory
 import com.estech.cocktailapp.data.RespuestaVasos
+import com.estech.cocktailapp.data.RespuestaRandom
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -48,8 +50,11 @@ interface ApiService {
 
     // obtener por id
     @GET("lookup.php")
-    suspend fun getById(
-        @Query("iid") id: Int
-    ): Response<List<Ingredient>>
+    suspend fun getFullCoctelById(
+        @Query("i") id: String
+    ): Response<RespuestaRandom>
+
+    @GET("random.php")
+    suspend fun getRandomCoctel(): Response<RespuestaRandom>
 
 }

@@ -8,8 +8,8 @@ import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Glasses
 import com.estech.cocktailapp.data.Ingredient
+import com.estech.cocktailapp.data.FullCoctel
 import com.estech.cocktailapp.data.Repository
-import com.estech.cocktailapp.data.RespuestaCategory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,6 +22,7 @@ class CoViewModel(val context: Context) : ViewModel() {
     val nonAlcoholicLiveData = MutableLiveData<List<Drink>?>()
 
     val selectedCoctel = MutableLiveData<Drink>()
+    val fullCoctel = MutableLiveData<FullCoctel>()
     val ingrLiveData = MutableLiveData<List<Ingredient>?>()
 
 
@@ -98,19 +99,35 @@ class CoViewModel(val context: Context) : ViewModel() {
         return glassesList2
     }
 
-    fun getIds(id: Int) {
+    fun getFullCoctelById(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = repositorio.ids(id)
+            val response = repositorio.getFullCoctelById(id)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
                 val listaIds = miRespuesta
-                ingrLiveData.postValue(listaIds)
+                fullCoctel.postValue(listaIds?.drinks?.get(0))
             }
         }
     }
 
+    fun putFullCoctel(coctel: FullCoctel) {
+        fullCoctel.postValue(coctel)
+    }
+
     fun chooseDrink(drink: Drink) {
         selectedCoctel.postValue(drink)
+    }
+
+    fun getRandomCoctel(): MutableLiveData<List<FullCoctel>?> {
+        val randomLiveData = MutableLiveData<List<FullCoctel>?>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.getRandomCoctel()
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                randomLiveData.postValue(miRespuesta?.drinks)
+            }
+        }
+        return randomLiveData
     }
 
 
