@@ -3,29 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/listadoCoctelesInicial">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesAlcohol"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/detalleCoctelFragment"
+        android:name="com.estech.cocktailapp.fragments.DetalleCoctelFragment"
+        android:label="DetalleCoctelFragment" />
+    <fragment
+        android:id="@+id/listadoCoctelesInicial"
+        android:name="com.estech.cocktailapp.fragments.ListadoCoctelesInicial"
+        android:label="ListadoCoctelesInicial" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_listaCoctelesSpinner"
-            app:destination="@id/listaCoctelesSpinner" />
+            android:id="@+id/action_listadoCoctelesInicial_to_detalleCoctelFragment"
+            app:destination="@id/detalleCoctelFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/lista_receta"/>
-    <fragment
-        android:id="@+id/listaCoctelesSpinner"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesSpinner"
-        android:label="fragment_lista_cocteles_spinner"
-        tools:layout="@layout/fragment_lista_cocteles_spinner" />
 </navigation>
