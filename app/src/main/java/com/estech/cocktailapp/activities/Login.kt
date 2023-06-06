@@ -29,8 +29,8 @@ class Login : AppCompatActivity() {
             0f,
             0f,
             0f,
-            225f,
-            intArrayOf(Color.rgb(230, 74, 25), Color.rgb(255, 255, 0)),
+            220f,
+            intArrayOf(Color.rgb(252, 75, 8), Color.rgb(255, 255, 0)),
             floatArrayOf(0f, 1f),
             Shader.TileMode.CLAMP
         )
