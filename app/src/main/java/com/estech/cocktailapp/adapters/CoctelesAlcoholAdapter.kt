@@ -37,17 +37,13 @@ class CoctelesAlcoholAdapter(val myViewModel: CoViewModel) :
 
         holder.itemView.setOnClickListener {
             myViewModel.chooseDrink(info)
-            Navigation.findNavController(it).navigate(R.id.action_FirstFragment_to_SecondFragment)
+            Navigation.findNavController(it).navigate(R.id.action_listadoCoctelesInicial_to_detalleCoctelFragment)
         }
 
         Glide.with(
             holder.itemView.context)
             .load(info.strDrinkThumb)
             .into(holder.binding.ivCoctelImg)
-
-        holder.itemView.setOnClickListener {
-            myViewModel.chooseDrink(info)
-        }
     }
 
     fun updateList(list: List<Drink>?) {

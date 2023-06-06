@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
         if (myPrefHelper.getUsername() == "Usuario") {
             appBarConfiguration = AppBarConfiguration(
                 setOf(
-                    R.id.listado_cocteles_inicial_fragment
+                    R.id.listadoCoctelesInicial,
+                    R.id.detalleCoctelFragment
                 ), binding.drawerLayout
             )
             setupActionBarWithNavController(navController, appBarConfiguration)
