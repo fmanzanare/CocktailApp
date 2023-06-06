@@ -5,5 +5,5 @@ import com.squareup.moshi.Json
 
 data class RespuestaRandom(
     @Json(name = "drinks")
-    val drinks: List<RandomCoctel>?
+    val drinks: List<FullCoctel>?
 )
