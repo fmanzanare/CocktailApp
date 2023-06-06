@@ -67,5 +67,16 @@ class Login : AppCompatActivity() {
                 }
             }
         }
+
+        binding.accessButton.setOnClickListener {
+            myPrefHelper.putUsername("Invitado")
+            val time = Calendar.getInstance().time
+            val currDate = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE).format(time)
+            myPrefHelper.putCurrDate(currDate)
+
+            val intent = Intent(this@Login, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
