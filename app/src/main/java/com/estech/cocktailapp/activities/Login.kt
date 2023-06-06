@@ -38,14 +38,13 @@ class Login : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener {
             with (binding) {
-                if (myPrefHelper.getUsername().equals("Usuario"))
+                if (myPrefHelper.getUsername()=="Usuario")
                     emailEditText.setText(myPrefHelper.getUsername())
 
-                loginButton.setOnClickListener {
                     if (emailEditText.text.isNullOrEmpty() || passwordEditText.text.isNullOrEmpty()) {
                         emailEditText.error = "El campo email es obligatorio"
                         passwordEditText.error = "El campo password es obligatorio"
-                    } else if (emailEditText.text.equals("Usuario") && passwordEditText.text.equals("12345")) {
+                    } else if (emailEditText.text.equals("Usuario") && passwordEditText.toString() == 12345) {
                         myPrefHelper.putUsername("Usuario")
                         val time = Calendar.getInstance().time
                         val currDate = SimpleDateFormat("yyyy-MM-dd", Locale.FRANCE).format(time)
@@ -65,7 +64,6 @@ class Login : AppCompatActivity() {
                         emailEditText.error = "El campo usuario y contraseña son incorrectos"
                         passwordEditText.error = "El campo usuario y contraseña son incorrectos"
                     }
-                }
             }
         }
     }

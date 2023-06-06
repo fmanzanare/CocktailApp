@@ -14,10 +14,18 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_listaCoctelesSpinner"
+            app:destination="@id/listaCoctelesSpinner" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/lista_receta"/>
+    <fragment
+        android:id="@+id/listaCoctelesSpinner"
+        android:name="com.estech.cocktailapp.fragments.ListaCoctelesSpinner"
+        android:label="fragment_lista_cocteles_spinner"
+        tools:layout="@layout/fragment_lista_cocteles_spinner" />
 </navigation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ingrediente"
+        android:icon="@drawable/baseline_local_drink_24"
+        android:title="Por Ingrediente" />
+    <item
+        android:id="@+id/tipovaso"
+        android:icon="@drawable/baseline_local_bar_24"
+        android:title="Por tipo de vaso" />
+    <item
+        android:id="@+id/categoria"
+        android:icon="@drawable/baseline_category_24"
+        android:title="Por Categoría" />
+    <item
+        android:id="@+id/aleatorio"
+        android:icon="@drawable/baseline_question_mark_24"
+        android:title="Cóctel aleatorio" />
+</menu>
