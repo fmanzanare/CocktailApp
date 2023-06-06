@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.estech.cocktailapp.CoViewModel
 import com.estech.cocktailapp.adapters.CoctelesAlcoholAdapter
+import com.estech.cocktailapp.adapters.ListaCoctelesViewPagerAdapter
 import com.estech.cocktailapp.databinding.ListaCoctelesBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ListaCoctelesNoAlcohol : Fragment() {
 
@@ -48,5 +50,7 @@ class ListaCoctelesNoAlcohol : Fragment() {
                 adapter.updateList(it)
             }
         }
+
+
     }
 }
