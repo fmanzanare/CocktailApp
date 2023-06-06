@@ -2,6 +2,7 @@ package com.estech.cocktailapp.network
 
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
+import com.estech.cocktailapp.data.Respuesta
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,7 +13,7 @@ interface ApiService {
     @GET("filter.php")
     suspend fun getDrinksAlc(
         @Query("a") a: String
-    ): Response<List<Drink>>
+    ): Response<Respuesta>
 
     // obtener bebidas por categoría
     @GET("filter.php")

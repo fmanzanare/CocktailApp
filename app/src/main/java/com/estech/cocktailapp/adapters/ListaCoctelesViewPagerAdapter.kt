@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.estech.cocktailapp.fragments.ListaCoctelesAlcohol
 import com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol
 
-class ViewPagerAdapter(
+class ListaCoctelesViewPagerAdapter(
     activity: FragmentActivity
 ): FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
