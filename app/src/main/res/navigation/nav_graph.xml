@@ -3,20 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listado_cocteles_inicial_fragment">
+    app:startDestination="@id/listadoCoctelesInicial">
 
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/lista_receta"/>
+        android:id="@+id/detalleCoctelFragment"
+        android:name="com.estech.cocktailapp.fragments.DetalleCoctelFragment"
+        android:label="DetalleCoctelFragment" />
     <fragment
-        android:id="@+id/listaCoctelesSpinner"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesSpinner"
-        android:label="fragment_lista_cocteles_spinner"
-        tools:layout="@layout/fragment_lista_cocteles_spinner" />
-    <fragment
-        android:id="@+id/listado_cocteles_inicial_fragment"
+        android:id="@+id/listadoCoctelesInicial"
         android:name="com.estech.cocktailapp.fragments.ListadoCoctelesInicial"
-        android:label="Listado Cocteles" />
+        android:label="ListadoCoctelesInicial" >
+        <action
+            android:id="@+id/action_listadoCoctelesInicial_to_detalleCoctelFragment"
+            app:destination="@id/detalleCoctelFragment" />
+    </fragment>
 </navigation>
