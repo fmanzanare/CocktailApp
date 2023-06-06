@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import com.estech.cocktailapp.R
 import com.estech.cocktailapp.adapters.ListaCoctelesViewPagerAdapter
 import com.estech.cocktailapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -27,5 +30,6 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab,position ->
             tab.text = if (position == 0) "Cockteles con Alcohol" else "Cockteles sin Alcohol"
         }.attach()
+
     }
 }
