@@ -1,5 +1,6 @@
 package com.estech.cocktailapp.network
 
+import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Respuesta
@@ -19,7 +20,7 @@ interface ApiService {
     @GET("filter.php")
     suspend fun getDrinkCateg(
         @Query("c") c: String
-    ): Response<List<Drink>>
+    ): Response<List<Category>>
 
     // obtener bebidas por ingrediente
     @GET("filter.php")

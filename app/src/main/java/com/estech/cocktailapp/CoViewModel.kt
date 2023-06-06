@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Repository
@@ -19,6 +20,7 @@ class CoViewModel(val context: Context) : ViewModel() {
     val nonAlcoholicLiveData = MutableLiveData<List<Drink>?>()
     val selectedCoctel = MutableLiveData<Drink>()
     val ingrLiveData = MutableLiveData<List<Ingredient>?>()
+    val cateLiveData = MutableLiveData<List<Category>?>()
 
     fun getAlcohol(a: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -40,7 +42,7 @@ class CoViewModel(val context: Context) : ViewModel() {
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
                 val listaCate = miRespuesta
-                drinksLiveData.postValue(listaCate)
+                cateLiveData.postValue(listaCate)
             }
         }
     }
