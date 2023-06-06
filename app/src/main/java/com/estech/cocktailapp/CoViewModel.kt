@@ -9,6 +9,7 @@ import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Glasses
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.FullCoctel
+import com.estech.cocktailapp.data.Ingredients
 import com.estech.cocktailapp.data.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -64,15 +65,28 @@ class CoViewModel(val context: Context) : ViewModel() {
         return drinksByCategory
     }
 
-    fun getIng(i: String) {
+    fun getIng(i: String):MutableLiveData<List<Ingredients>?> {
+        val cateLiveData= MutableLiveData<List<Ingredients>?>()
         CoroutineScope(Dispatchers.IO).launch {
             val response = repositorio.ingredient(i)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
-                val listaIng = miRespuesta
-                drinksLiveData.postValue(listaIng)
+                cateLiveData.postValue(miRespuesta?.drinks)
             }
         }
+        return cateLiveData
+    }
+
+    fun getDrinksByIng(i: String): MutableLiveData<List<Drink>?>{
+        val drinksByIng= MutableLiveData<List<Drink>?>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response= repositorio.getDrinksByIng(i)
+            if (response.isSuccessful){
+                val miRespuesta=response.body()
+                drinksByIng.postValue(miRespuesta?.drinks)
+            }
+        }
+        return drinksByIng
     }
 
     fun getGlass(g: String): MutableLiveData<List<Glasses>?> {

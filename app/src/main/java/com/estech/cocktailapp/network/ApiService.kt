@@ -8,6 +8,7 @@ import com.estech.cocktailapp.data.Respuesta
 import com.estech.cocktailapp.data.RespuestaCategory
 import com.estech.cocktailapp.data.RespuestaVasos
 import com.estech.cocktailapp.data.RespuestaRandom
+import com.estech.cocktailapp.data.RespuestaIngrediente
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -35,7 +36,12 @@ interface ApiService {
     @GET("list.php")
     suspend fun getIngredient(
         @Query("i") i: String
-    ): Response<List<Drink>>
+    ): Response<RespuestaIngrediente>
+
+    @GET("list.php")
+    suspend fun getDrinksByIng(
+        @Query("i") i: String
+    ): Response<Respuesta>
 
     // obtener tipo de vaso
     @GET("list.php")
