@@ -13,6 +13,8 @@ class Repository(val context: Context) {
     // para obtener según la categoría
     suspend fun category(c: String) = retrofit.getDrinkCateg(c)
 
+    suspend fun getDrinksByCateg (c: String) = retrofit.getDrinksByCateg(c)
+
     // para obtener según el ingrediente
     suspend fun ingredient(i: String) = retrofit.getIngredient(i)
 

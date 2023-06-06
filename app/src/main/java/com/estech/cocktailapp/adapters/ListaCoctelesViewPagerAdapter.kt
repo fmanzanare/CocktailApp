@@ -3,6 +3,7 @@ package com.estech.cocktailapp.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.estech.cocktailapp.fragments.ListaCategoria
 import com.estech.cocktailapp.fragments.ListaCoctelesAlcohol
 import com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol
 
@@ -14,7 +15,7 @@ class ListaCoctelesViewPagerAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        return if (position == 0) ListaCoctelesAlcohol() else ListaCoctelesNoAlcohol()
+        return if (position == 0) ListaCoctelesAlcohol() else ListaCategoria()
     }
 
 }

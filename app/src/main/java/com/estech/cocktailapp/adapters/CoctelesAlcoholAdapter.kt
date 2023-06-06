@@ -42,9 +42,11 @@ class CoctelesAlcoholAdapter(val myViewModel: CoViewModel) : RecyclerView.Adapte
         }
     }
 
-    fun updateList(list: List<Drink>) {
+    fun updateList(list: List<Drink>?) {
         lista.clear()
-        lista.addAll(list)
+        if (list != null) {
+            lista.addAll(list)
+        }
         notifyDataSetChanged()
     }
 }

@@ -4,6 +4,7 @@ import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Respuesta
+import com.estech.cocktailapp.data.RespuestaCategory
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,19 +18,24 @@ interface ApiService {
     ): Response<Respuesta>
 
     // obtener bebidas por categoría
-    @GET("filter.php")
+    @GET("list.php")
     suspend fun getDrinkCateg(
         @Query("c") c: String
-    ): Response<List<Category>>
+    ): Response<RespuestaCategory>
+
+    @GET("filter.php")
+    suspend fun getDrinksByCateg(
+        @Query("c") c: String
+    ): Response<Respuesta>
 
     // obtener bebidas por ingrediente
-    @GET("filter.php")
+    @GET("list.php")
     suspend fun getIngredient(
         @Query("i") i: String
     ): Response<List<Drink>>
 
     // obtener tipo de vaso
-    @GET("filter.php")
+    @GET("list.php")
     suspend fun getTypeGlass(
         @Query("g") g: String
     ): Response<List<Drink>>
