@@ -18,6 +18,8 @@ class Repository(val context: Context) {
     // para obtener según el ingrediente
     suspend fun ingredient(i: String) = retrofit.getIngredient(i)
 
+    suspend fun getDrinksByIng(i: String)=retrofit.getDrinksByIng(i)
+
     // para obtener según el vaso
     suspend fun glass(g: String) = retrofit.getTypeGlass(g)
 
