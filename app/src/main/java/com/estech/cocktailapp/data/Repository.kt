@@ -21,6 +21,8 @@ class Repository(val context: Context) {
     // para obtener según el vaso
     suspend fun glass(g: String) = retrofit.getTypeGlass(g)
 
+    suspend fun getDrinksByGlass(g:String) = retrofit.getDrinkByGlass(g)
+
     // para obtener por id
     suspend fun getFullCoctelById(id: String) = retrofit.getFullCoctelById(id)
 
