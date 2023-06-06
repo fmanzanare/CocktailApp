@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.NavController
-import com.estech.cocktailapp.adapters.ListaCoctelesViewPagerAdapter
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.estech.cocktailapp.R
 import com.estech.cocktailapp.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayoutMediator
+import com.estech.cocktailapp.databinding.CabeceraBinding
+import com.estech.cocktailapp.shared_preferences.PrefHelper
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,9 +27,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        binding.viewPager.adapter = ListaCoctelesViewPagerAdapter(this)
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab,position ->
-            tab.text = if (position == 0) "Cockteles con Alcohol" else "Cockteles sin Alcohol"
-        }.attach()
+
+        val myPrefHelper = PrefHelper(this)
+
+        val header = binding.navigationView.getHeaderView(0)
+        val headerBinding: CabeceraBinding = CabeceraBinding.bind(header)
+        if (myPrefHelper.getUsername()?.isNotEmpty() == true)
+            headerBinding.tv1.text = myPrefHelper.getUsername()
+        else
+            headerBinding.tv1.text = "Invitado"
+        headerBinding.tv2.text = myPrefHelper.getCurrDate()
+        headerBinding.imageView.setImageResource(R.drawable.manhattan)
+
+        navController = findNavController(R.id.fragmentContainerView)
+
+        if (myPrefHelper.getUsername() == "Usuario") {
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.listado_cocteles_inicial_fragment
+                ), binding.drawerLayout
+            )
+            setupActionBarWithNavController(navController, appBarConfiguration)
+            binding.navigationView.setupWithNavController(navController)
+        }
+
+
     }
 }
