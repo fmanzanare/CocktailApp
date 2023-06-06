@@ -7,9 +7,13 @@
     android:layout_gravity="start"
     tools:context=".activities.MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activities.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -22,41 +26,22 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="#B4FF9800" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#F3E6C0"
+                app:tabIndicatorColor="#E64A19" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="48dp"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.tabs.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#F3E6C0"
-            app:tabIndicatorColor="#E64A19">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_alcoholic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alcoholic" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_nonAlcoholic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Non-Alcoholic" />
-
-        </com.google.android.material.tabs.TabLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

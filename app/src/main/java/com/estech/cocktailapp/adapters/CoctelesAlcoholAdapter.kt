@@ -1,7 +1,51 @@
 package com.estech.cocktailapp.adapters
 
-class CoctelesAlcoholAdapter {
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.estech.cocktailapp.CoViewModel
+import com.estech.cocktailapp.data.Drink
+import com.estech.cocktailapp.databinding.CoctelHolderBinding
 
+class CoctelesAlcoholAdapter(val myViewModel: CoViewModel) : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>(){
 
+    private var lista = ArrayList<Drink>()
 
+    inner class MiCelda(val binding: CoctelHolderBinding) :
+        RecyclerView.ViewHolder(binding.root)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiCelda {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = CoctelHolderBinding.inflate(layoutInflater, parent, false)
+        return MiCelda(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return lista.size
+    }
+
+    override fun onBindViewHolder(holder: MiCelda, position: Int) {
+        val info = lista[position]
+
+        holder.binding.tvCoctelName.text = info.strDrink
+
+        Glide.with(
+            holder.itemView.context
+        )
+            .load(info.strDrinkThumb)
+            .into(holder.binding.ivCoctelImg)
+
+        holder.itemView.setOnClickListener {
+            myViewModel.chooseDrink(info)
+        }
+    }
+
+    fun updateList(list: List<Drink>) {
+        lista.clear()
+        lista.addAll(list)
+        notifyDataSetChanged()
+    }
 }
+

@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDD0C7">
+    android:alpha="0.90"
+    android:background="@drawable/fondo">
 
     <!-- Nombre de la app -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/bree_serif"
         android:text="TheCocktailDB"
         android:textColor="#000000"
@@ -22,30 +23,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Imagen de la app -->
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/logococktailbd" />
 
     <!-- Campo de entrada de correo electrónico -->
+
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="220dp"
         android:hint="Usuario"
         android:inputType="textEmailAddress"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <!-- Campo de entrada de contraseña -->
     <EditText
@@ -55,7 +50,10 @@
         android:layout_marginTop="20dp"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +64,8 @@
         android:id="@+id/loginButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#FF794F"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#FF5019"
         android:text="Iniciar sesión"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +79,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#FF794F"
+        android:backgroundTint="#FF5019"
         android:text="Invitado"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
