@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
+import com.estech.cocktailapp.data.RandomCoctel
 import com.estech.cocktailapp.data.Repository
 import com.estech.cocktailapp.data.RespuestaCategory
 import kotlinx.coroutines.CoroutineScope
@@ -97,6 +98,18 @@ class CoViewModel(val context: Context) : ViewModel() {
 
     fun chooseDrink(drink: Drink) {
         selectedCoctel.postValue(drink)
+    }
+
+    fun getRandomCoctel(): MutableLiveData<List<RandomCoctel>?> {
+        val randomLiveData = MutableLiveData<List<RandomCoctel>?>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.getRandomCoctel()
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                randomLiveData.postValue(miRespuesta?.drinks)
+            }
+        }
+        return randomLiveData
     }
 
 
