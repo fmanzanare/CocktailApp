@@ -85,13 +85,13 @@ class CoViewModel(val context: Context) : ViewModel() {
         }
     }
 
-    fun getIds(id: Int) {
+    fun getFullCoctelById(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = repositorio.ids(id)
+            val response = repositorio.getFullCoctelById(id)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
                 val listaIds = miRespuesta
-                ingrLiveData.postValue(listaIds)
+                fullCoctel.postValue(listaIds?.drinks?.get(0))
             }
         }
     }

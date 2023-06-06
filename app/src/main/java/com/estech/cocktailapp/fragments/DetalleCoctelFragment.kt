@@ -49,6 +49,8 @@ class DetalleCoctelFragment : Fragment() {
             Glide.with(this)
                 .load(it.strDrinkThumb)
                 .into(binding.ivCatImage)
+
+            it?.idDrink?.let { it1 -> myViewModel.getFullCoctelById(it1) }
         }
 
     }

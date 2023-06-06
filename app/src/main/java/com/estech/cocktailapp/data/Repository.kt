@@ -22,7 +22,7 @@ class Repository(val context: Context) {
     suspend fun glass(g: String) = retrofit.getTypeGlass(g)
 
     // para obtener por id
-    suspend fun ids(id: Int) = retrofit.getById(id)
+    suspend fun getFullCoctelById(id: String) = retrofit.getFullCoctelById(id)
 
     // para obtener coctel random
     suspend fun getRandomCoctel() = retrofit.getRandomCoctel()
