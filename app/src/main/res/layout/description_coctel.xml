@@ -12,7 +12,7 @@
         android:padding="24dp">
 
         <TextView
-            android:id="@+id/tvDrink"
+            android:id="@+id/tvIngredient1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -22,7 +22,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/drink"
+            android:id="@+id/tvMeasure1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -30,7 +30,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvTags"
+            android:id="@+id/tvIngredient2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -40,7 +40,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tags"
+            android:id="@+id/tvMeasure2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -48,7 +48,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvCategory"
+            android:id="@+id/tvIngredient3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -66,7 +66,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvIBA"
+            android:id="@+id/tvIngredient4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -84,7 +84,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvAlcoholic"
+            android:id="@+id/tvIngredient5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -102,7 +102,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tvGlass"
+            android:id="@+id/tvIngredient6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -120,7 +120,7 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/tvInstruction"
+            android:id="@+id/tvIngredient7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
