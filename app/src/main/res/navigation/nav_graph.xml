@@ -3,21 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/listado_cocteles_inicial_fragment">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.estech.cocktailapp.fragments.ListaCoctelesAlcohol"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_listaCoctelesSpinner"
-            app:destination="@id/listaCoctelesSpinner" />
-    </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.estech.cocktailapp.fragments.ListaCoctelesNoAlcohol"
@@ -28,4 +15,8 @@
         android:name="com.estech.cocktailapp.fragments.ListaCoctelesSpinner"
         android:label="fragment_lista_cocteles_spinner"
         tools:layout="@layout/fragment_lista_cocteles_spinner" />
+    <fragment
+        android:id="@+id/listado_cocteles_inicial_fragment"
+        android:name="com.estech.cocktailapp.fragments.ListadoCoctelesInicial"
+        android:label="Listado Cocteles" />
 </navigation>
