@@ -5,6 +5,7 @@ import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Respuesta
 import com.estech.cocktailapp.data.RespuestaCategory
+import com.estech.cocktailapp.data.RespuestaRandom
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -45,5 +46,8 @@ interface ApiService {
     suspend fun getById(
         @Query("iid") id: Int
     ): Response<List<Ingredient>>
+
+    @GET("random.php")
+    suspend fun getRandomCoctel(): Response<RespuestaRandom>
 
 }
