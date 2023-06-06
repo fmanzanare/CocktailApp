@@ -11,8 +11,9 @@ import com.estech.cocktailapp.R
 import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.databinding.CoctelHolderBinding
 
-class CoctelesAlcoholAdapter(val myViewModel: CoViewModel) :
-    RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>() {
+class CoctelesAlcoholAdapter(
+    val myViewModel: CoViewModel
+    ) : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>() {
 
     private var lista = ArrayList<Drink>()
 
