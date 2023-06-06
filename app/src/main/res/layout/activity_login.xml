@@ -31,6 +31,8 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="220dp"
+        android:backgroundTint="#FF5722"
+        android:drawableEnd="@drawable/baseline_supervised_user_circle_24"
         android:hint="Usuario"
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
@@ -48,6 +50,8 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#FF5722"
+        android:drawableEnd="@drawable/baseline_password_24"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
@@ -71,7 +75,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@id/passwordEditText"
+        app:strokeColor="@color/white"
+        app:strokeWidth="3sp" />
 
     <!-- Botón de acceso sin registro -->
     <Button
@@ -79,13 +85,15 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#FF5019"
+        android:backgroundTint="#FCE6673F"
         android:text="Invitado"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

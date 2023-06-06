@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.estech.cocktailapp.data.Category
 import com.estech.cocktailapp.data.Drink
+import com.estech.cocktailapp.data.Glasses
 import com.estech.cocktailapp.data.Ingredient
 import com.estech.cocktailapp.data.Repository
 import com.estech.cocktailapp.data.RespuestaCategory
@@ -73,15 +74,28 @@ class CoViewModel(val context: Context) : ViewModel() {
         }
     }
 
-    fun getGlass(g: String) {
+    fun getGlass(g: String): MutableLiveData<List<Glasses>?> {
+        val glassesList = MutableLiveData<List<Glasses>?>()
         CoroutineScope(Dispatchers.IO).launch {
             val response = repositorio.glass(g)
             if (response.isSuccessful) {
                 val miRespuesta = response.body()
-                val listaGlass = miRespuesta
-                drinksLiveData.postValue(listaGlass)
+                glassesList.postValue(miRespuesta?.drinks)
             }
         }
+        return glassesList
+    }
+
+    fun getDrinkByGlass(g: String): MutableLiveData<List<Drink>?>{
+        val glassesList2 = MutableLiveData<List<Drink>?>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repositorio.getDrinksByGlass(g)
+            if (response.isSuccessful) {
+                val miRespuesta = response.body()
+                glassesList2.postValue(miRespuesta?.drinks)
+            }
+        }
+        return glassesList2
     }
 
     fun getIds(id: Int) {
