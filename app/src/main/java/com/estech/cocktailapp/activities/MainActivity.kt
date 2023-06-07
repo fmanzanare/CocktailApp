@@ -1,6 +1,7 @@
 package com.estech.cocktailapp.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar2)
 
         val myPrefHelper = PrefHelper(this)
 
@@ -57,7 +59,25 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
     }
+
+    fun setupActionBar(toolBar: androidx.appcompat.widget.Toolbar) {
+        binding.toolbar2.visibility = View.GONE
+        setSupportActionBar(toolBar)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.navigationView.setupWithNavController(navController)
+    }
+
+    fun setupActionBar2(toolBar: androidx.appcompat.widget.Toolbar) {
+        binding.toolbar2.visibility = View.GONE
+        setSupportActionBar(toolBar)
+        setupActionBarWithNavController(navController)
+    }
+
     override fun onSupportNavigateUp(): Boolean {
+        if (navController.currentDestination?.id == R.id.detalleCoctelFragment) {
+            navController.popBackStack()
+            return super.onSupportNavigateUp()
+        }
         return (navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp())
     }
 }

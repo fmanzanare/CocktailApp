@@ -12,7 +12,7 @@
     <fragment
         android:id="@+id/listadoCoctelesInicial"
         android:name="com.estech.cocktailapp.fragments.ListadoCoctelesInicial"
-        android:label="ListadoCoctelesInicial" >
+        android:label="Listado de Cócteles">
         <action
             android:id="@+id/action_listadoCoctelesInicial_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/listaIngrediente"
         android:name="com.estech.cocktailapp.fragments.ListaIngrediente"
-        android:label="ListaIngrediente" >
+        android:label="Búsqueda por Ingrediente">
         <action
             android:id="@+id/action_listaIngrediente_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/listaVasos"
         android:name="com.estech.cocktailapp.fragments.ListaVasos"
-        android:label="ListaVasos" >
+        android:label="Búsqueda por Tipo de Vaso">
         <action
             android:id="@+id/action_listaVasos_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />
@@ -40,8 +40,8 @@
     <fragment
         android:id="@+id/listaCategoria"
         android:name="com.estech.cocktailapp.fragments.ListaCategoria"
-        android:label="fragment_lista_categoria"
-        tools:layout="@layout/fragment_lista_categoria" >
+        android:label="Búsqueda por Categoría"
+        tools:layout="@layout/fragment_lista_categoria">
         <action
             android:id="@+id/action_listaCategoria_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />

@@ -33,9 +33,6 @@ class RandomCoctelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as MainActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-
         binding.viewpager.adapter = CoctelDetalleViewPagerAdapter(requireActivity())
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab,position ->
             tab.text = if (position == 0) "Detalles" else "Receta"
@@ -48,5 +45,10 @@ class RandomCoctelFragment : Fragment() {
                 .into(binding.ivCatImage)
             it?.get(0)?.let { it1 -> myViewModel.putFullCoctel(it1) }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).setupActionBar(binding.toolbar)
     }
 }

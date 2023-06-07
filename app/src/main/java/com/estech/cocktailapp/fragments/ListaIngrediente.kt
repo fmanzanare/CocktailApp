@@ -35,10 +35,8 @@ class ListaIngrediente : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarListadoBusquedas)
-        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        (requireActivity() as MainActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
-        (requireActivity() as MainActivity).supportActionBar?.title = "Busqueda por ingredientes"
+//        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        (requireActivity() as MainActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
 
         binding.fabSearch.setOnClickListener {
 
@@ -64,6 +62,12 @@ class ListaIngrediente : Fragment(){
                 builder.create().show()
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).setupActionBar(binding.toolbarListadoBusquedas)
+        (requireActivity() as MainActivity).supportActionBar?.title = "Busqueda por ingredientes"
     }
 
     fun getName(aList: List<Ingredients>): Array<String>{

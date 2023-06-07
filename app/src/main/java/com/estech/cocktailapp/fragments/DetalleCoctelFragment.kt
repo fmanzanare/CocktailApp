@@ -34,9 +34,6 @@ class DetalleCoctelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as MainActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         binding.viewpager.adapter = CoctelDetalleViewPagerAdapter(requireActivity())
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab,position ->
             tab.text = if (position == 0) "Detalles" else "Receta"
@@ -52,7 +49,10 @@ class DetalleCoctelFragment : Fragment() {
 
             it?.idDrink?.let { it1 -> myViewModel.getFullCoctelById(it1) }
         }
-
     }
 
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).setupActionBar2(binding.toolbar)
+    }
 }
