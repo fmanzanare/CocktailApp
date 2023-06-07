@@ -1,13 +1,13 @@
 package com.estech.cocktailapp.activities
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.estech.cocktailapp.R
@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
             appBarConfiguration = AppBarConfiguration(
                 setOf(
                     R.id.listadoCoctelesInicial,
+                    R.id.listaCategoria,
+                    R.id.listaIngrediente,
+                    R.id.listaVasos,
                     R.id.detalleCoctelFragment
                 ), binding.drawerLayout
             )
@@ -53,5 +56,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        return (navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp())
     }
 }

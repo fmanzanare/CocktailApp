@@ -15,7 +15,7 @@ class ListaCoctelesViewPagerAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        return if (position == 0) ListaCoctelesAlcohol() else ListaCategoria()
+        return if (position == 0) ListaCoctelesAlcohol() else ListaCoctelesNoAlcohol()
     }
 
 }

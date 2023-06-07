@@ -17,4 +17,33 @@
             android:id="@+id/action_listadoCoctelesInicial_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listaIngrediente"
+        android:name="com.estech.cocktailapp.fragments.ListaIngrediente"
+        android:label="ListaIngrediente" >
+        <action
+            android:id="@+id/action_listaIngrediente_to_detalleCoctelFragment"
+            app:destination="@id/detalleCoctelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaVasos"
+        android:name="com.estech.cocktailapp.fragments.ListaVasos"
+        android:label="ListaVasos" >
+        <action
+            android:id="@+id/action_listaVasos_to_detalleCoctelFragment"
+            app:destination="@id/detalleCoctelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomCoctelFragment"
+        android:name="com.estech.cocktailapp.fragments.RandomCoctelFragment"
+        android:label="RandomCoctelFragment" />
+    <fragment
+        android:id="@+id/listaCategoria"
+        android:name="com.estech.cocktailapp.fragments.ListaCategoria"
+        android:label="fragment_lista_categoria"
+        tools:layout="@layout/fragment_lista_categoria" >
+        <action
+            android:id="@+id/action_listaCategoria_to_detalleCoctelFragment"
+            app:destination="@id/detalleCoctelFragment" />
+    </fragment>
 </navigation>

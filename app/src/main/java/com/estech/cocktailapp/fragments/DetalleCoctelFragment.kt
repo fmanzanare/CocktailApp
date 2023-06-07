@@ -35,7 +35,7 @@ class DetalleCoctelFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.viewpager.adapter = CoctelDetalleViewPagerAdapter(requireActivity())
         TabLayoutMediator(binding.tabs, binding.viewpager) { tab,position ->

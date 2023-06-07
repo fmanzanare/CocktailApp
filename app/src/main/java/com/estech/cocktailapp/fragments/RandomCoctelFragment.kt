@@ -9,7 +9,9 @@ import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.estech.cocktailapp.CoViewModel
 import com.estech.cocktailapp.activities.MainActivity
+import com.estech.cocktailapp.adapters.CoctelDetalleViewPagerAdapter
 import com.estech.cocktailapp.databinding.DetalleCoctelBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class RandomCoctelFragment : Fragment() {
 
@@ -33,6 +35,11 @@ class RandomCoctelFragment : Fragment() {
 
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        binding.viewpager.adapter = CoctelDetalleViewPagerAdapter(requireActivity())
+        TabLayoutMediator(binding.tabs, binding.viewpager) { tab,position ->
+            tab.text = if (position == 0) "Detalles" else "Receta"
+        }.attach()
 
         myViewModel.getRandomCoctel().observe(viewLifecycleOwner) {
             (requireActivity() as MainActivity).supportActionBar?.title = it?.get(0)?.strDrink
