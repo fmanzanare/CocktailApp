@@ -38,7 +38,7 @@ interface ApiService {
         @Query("i") i: String
     ): Response<RespuestaIngrediente>
 
-    @GET("list.php")
+    @GET("filter.php")
     suspend fun getDrinksByIng(
         @Query("i") i: String
     ): Response<Respuesta>
@@ -49,7 +49,7 @@ interface ApiService {
         @Query("g") g: String
     ): Response<RespuestaVasos>
 
-    @GET("list.php")
+    @GET("filter.php")
     suspend fun getDrinkByGlass(
         @Query("g") g: String
     ): Response<Respuesta>
