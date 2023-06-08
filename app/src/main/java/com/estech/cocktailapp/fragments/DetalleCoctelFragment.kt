@@ -17,6 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class DetalleCoctelFragment : Fragment() {
 
     private lateinit var binding: DetalleCoctelBinding
+    private var coctelName = "testing"
 
     private val myViewModel by activityViewModels<CoViewModel> {
         CoViewModel.MyViewModelFactory(requireContext())
@@ -41,7 +42,7 @@ class DetalleCoctelFragment : Fragment() {
 
         myViewModel.selectedCoctel.observe(viewLifecycleOwner) {
 
-            (requireActivity() as MainActivity).supportActionBar?.title = it.strDrink
+            coctelName = it.strDrink
 
             Glide.with(this)
                 .load(it.strDrinkThumb)
@@ -54,5 +55,6 @@ class DetalleCoctelFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         (requireActivity() as MainActivity).setupActionBar2(binding.toolbar)
+        (requireActivity() as MainActivity).supportActionBar?.title = coctelName
     }
 }
