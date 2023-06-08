@@ -29,16 +29,6 @@ class ListadoCoctelesInicial: Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-        val myPrefHelper = PrefHelper(requireContext())
-
-//        if (myPrefHelper.getUsername() == "Usuario") {
-//            (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        } else {
-//            (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-//        }
-//        (requireActivity() as MainActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
-
-
         binding.viewPager.adapter = ListaCoctelesViewPagerAdapter(requireActivity())
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab,position ->
             tab.text = if (position == 0) "Cócteles con Alcohol" else "Cócteles sin Alcohol"
@@ -47,7 +37,15 @@ class ListadoCoctelesInicial: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        (requireActivity() as MainActivity).setupActionBar(binding.toolbarListaCoctelesInicial)
+
+        val myPrefHelper = PrefHelper(requireContext())
+
+        if (myPrefHelper.getUsername() == "Usuario") {
+            (requireActivity() as MainActivity).setupActionBar(binding.toolbarListaCoctelesInicial)
+        } else {
+            (requireActivity() as MainActivity).setupActionBar2(binding.toolbarListaCoctelesInicial)
+        }
+
         (requireActivity() as MainActivity).supportActionBar?.title = "Listado de Cócteles"
     }
 }
