@@ -12,10 +12,15 @@ import com.estech.cocktailapp.data.Drink
 import com.estech.cocktailapp.databinding.CoctelHolderBinding
 
 class CoctelesAlcoholAdapter(
-    val myViewModel: CoViewModel
+    val myViewModel: CoViewModel,
+    val listener: OnCocktailClickListener
     ) : RecyclerView.Adapter<CoctelesAlcoholAdapter.MiCelda>() {
 
     private var lista = ArrayList<Drink>()
+
+    interface OnCocktailClickListener {
+        fun onClick()
+    }
 
     inner class MiCelda(val binding: CoctelHolderBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -38,7 +43,7 @@ class CoctelesAlcoholAdapter(
 
         holder.itemView.setOnClickListener {
             myViewModel.chooseDrink(info)
-            Navigation.findNavController(it).navigate(R.id.action_listadoCoctelesInicial_to_detalleCoctelFragment)
+            listener.onClick()
         }
 
         Glide.with(

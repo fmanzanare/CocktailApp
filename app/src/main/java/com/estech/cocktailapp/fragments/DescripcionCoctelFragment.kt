@@ -30,15 +30,47 @@ class DescripcionCoctelFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         myViewModel.fullCoctel.observe(viewLifecycleOwner) {
-            binding.tvMeasure1
 
-            it.strCategory
+            if (!it.strAlcoholic.isNullOrEmpty()) {
+                binding.tvAlcoholic.text = it.strAlcoholic
+            } else {
+                binding.tvAlcoholicLabel.visibility = View.GONE
+                binding.tvAlcoholic.visibility = View.GONE
+            }
+
+            if (!it.strCategory.isNullOrEmpty()) {
+                binding.tvCategory.text = it.strCategory
+            } else {
+                binding.tvCategoryLabel.visibility = View.GONE
+                binding.tvCategory.visibility = View.GONE
+            }
 
             if (!it.strIBA.isNullOrEmpty()) {
-                binding.lifespan.text = it.strIBA
+                binding.tvIBA.text = it.strIBA
             } else {
-                binding.tvIngredient4.visibility = View.GONE
-                binding.lifespan.visibility = View.GONE
+                binding.tvIBALabel.visibility = View.GONE
+                binding.tvIBA.visibility = View.GONE
+            }
+
+            if (!it.strInstructions.isNullOrEmpty()) {
+                binding.tvInstructions.text = it.strInstructions
+            } else {
+                binding.tvInstructionsLabel.visibility = View.GONE
+                binding.tvInstructions.visibility = View.GONE
+            }
+
+            if (!it.strTags.isNullOrEmpty()) {
+                binding.tvTags.text = it.strTags
+            } else {
+                binding.tvTagsLabel.visibility = View.GONE
+                binding.tvTags.visibility = View.GONE
+            }
+
+            if (!it.strGlass.isNullOrEmpty()) {
+                binding.tvGlass.text = it.strGlass
+            } else {
+                binding.tvGlassLabel.visibility = View.GONE
+                binding.tvGlass.visibility = View.GONE
             }
 
         }

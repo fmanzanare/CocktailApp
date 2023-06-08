@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.estech.cocktailapp.R
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar2)
 
         val myPrefHelper = PrefHelper(this)
 
@@ -45,6 +47,9 @@ class MainActivity : AppCompatActivity() {
             appBarConfiguration = AppBarConfiguration(
                 setOf(
                     R.id.listadoCoctelesInicial,
+                    R.id.listaCategoria,
+                    R.id.listaIngrediente,
+                    R.id.listaVasos,
                     R.id.detalleCoctelFragment
                 ), binding.drawerLayout
             )
@@ -53,5 +58,26 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         }
+    }
+
+    fun setupActionBar(toolBar: androidx.appcompat.widget.Toolbar) {
+        binding.toolbar2.visibility = View.GONE
+        setSupportActionBar(toolBar)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.navigationView.setupWithNavController(navController)
+    }
+
+    fun setupActionBar2(toolBar: androidx.appcompat.widget.Toolbar) {
+        binding.toolbar2.visibility = View.GONE
+        setSupportActionBar(toolBar)
+        setupActionBarWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        if (navController.currentDestination?.id == R.id.detalleCoctelFragment) {
+            navController.popBackStack()
+            return super.onSupportNavigateUp()
+        }
+        return (navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp())
     }
 }
