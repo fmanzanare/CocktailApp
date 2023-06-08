@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvInstructionsLabel"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
