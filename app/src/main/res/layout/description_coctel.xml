@@ -16,10 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="Tags"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvTags"
@@ -27,17 +28,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvCategoryLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="Category"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvCategory"
@@ -45,17 +47,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvIBALabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="IBA"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvIBA"
@@ -63,17 +66,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvAlcoholicLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="Alcoholic"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvAlcoholic"
@@ -81,17 +85,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvGlassLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="Glass"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvGlass"
@@ -99,17 +104,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tvInstructionsLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:fontFamily="@font/slabo_27px"
             android:text="Instruction"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/tvInstructions"
@@ -117,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
