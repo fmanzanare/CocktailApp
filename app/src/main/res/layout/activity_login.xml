@@ -28,9 +28,11 @@
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="220dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#FF5722"
         android:drawableEnd="@drawable/baseline_supervised_user_circle_24"
         android:hint="Usuario"
@@ -47,9 +49,11 @@
     <!-- Campo de entrada de contraseña -->
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#FF5722"
         android:drawableEnd="@drawable/baseline_password_24"
         android:hint="Contraseña"
@@ -66,10 +70,12 @@
     <!-- Botón de inicio de sesión -->
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="#FF5019"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#B2FF5019"
         android:text="Iniciar sesión"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,15 +83,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEditText"
         app:strokeColor="@color/white"
-        app:strokeWidth="3sp" />
+        app:strokeWidth="1sp" />
 
     <!-- Botón de acceso sin registro -->
     <Button
         android:id="@+id/accessButton"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#FCE6673F"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#00E6673F"
         android:text="Invitado"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
