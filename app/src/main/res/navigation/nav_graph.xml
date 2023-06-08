@@ -40,8 +40,7 @@
     <fragment
         android:id="@+id/listaCategoria"
         android:name="com.estech.cocktailapp.fragments.ListaCategoria"
-        android:label="Búsqueda por Categoría"
-        tools:layout="@layout/fragment_lista_categoria">
+        android:label="Búsqueda por Categoría">
         <action
             android:id="@+id/action_listaCategoria_to_detalleCoctelFragment"
             app:destination="@id/detalleCoctelFragment" />
