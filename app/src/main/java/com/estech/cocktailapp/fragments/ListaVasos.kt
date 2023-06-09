@@ -41,7 +41,7 @@ class ListaVasos : Fragment() {
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarListadoBusquedas)
         (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (requireActivity() as MainActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
-        (requireActivity() as MainActivity).supportActionBar?.title = "Busqueda por tipo de vaso"
+        (requireActivity() as MainActivity).supportActionBar?.title = "Búsqueda por tipo de vaso"
 
         binding.fabSearch.setOnClickListener {
             binding.rvListadoBusqueda.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)

@@ -42,7 +42,7 @@ class ListaCategoria : Fragment() {
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarListadoBusquedas)
         (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (requireActivity() as MainActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_icon)
-        (requireActivity() as MainActivity).supportActionBar?.title = "Busqueda por categorías"
+        (requireActivity() as MainActivity).supportActionBar?.title = "Búsqueda por categorías"
 
         binding.fabSearch.setOnClickListener {
 

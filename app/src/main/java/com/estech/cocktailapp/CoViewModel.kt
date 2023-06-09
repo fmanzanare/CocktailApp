@@ -24,7 +24,6 @@ class CoViewModel(val context: Context) : ViewModel() {
 
     val selectedCoctel = MutableLiveData<Drink>()
     val fullCoctel = MutableLiveData<FullCoctel>()
-    val ingrLiveData = MutableLiveData<List<Ingredient>?>()
 
 
     fun getAlcohol(a: String) {

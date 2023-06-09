@@ -67,7 +67,7 @@ class ListaIngrediente : Fragment(){
     override fun onResume() {
         super.onResume()
         (requireActivity() as MainActivity).setupActionBar(binding.toolbarListadoBusquedas)
-        (requireActivity() as MainActivity).supportActionBar?.title = "Busqueda por ingredientes"
+        (requireActivity() as MainActivity).supportActionBar?.title = "Búsqueda por ingredientes"
     }
 
     fun getName(aList: List<Ingredients>): Array<String>{
