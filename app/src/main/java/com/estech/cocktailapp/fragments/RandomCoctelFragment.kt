@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class RandomCoctelFragment : Fragment() {
 
     private lateinit var binding: DetalleCoctelBinding
+    private var coctelTitle: String? = null
 
     private val myViewModel by activityViewModels<CoViewModel> {
         CoViewModel.MyViewModelFactory(requireContext())
@@ -39,6 +40,7 @@ class RandomCoctelFragment : Fragment() {
         }.attach()
 
         myViewModel.getRandomCoctel().observe(viewLifecycleOwner) {
+            coctelTitle = it?.get(0)?.strDrink
             (requireActivity() as MainActivity).supportActionBar?.title = it?.get(0)?.strDrink
             Glide.with(this)
                 .load(it?.get(0)?.strDrinkThumb)
@@ -50,5 +52,8 @@ class RandomCoctelFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         (requireActivity() as MainActivity).setupActionBar(binding.toolbar)
+        if (coctelTitle != null)
+            (requireActivity() as MainActivity).supportActionBar?.title =coctelTitle
+
     }
 }
